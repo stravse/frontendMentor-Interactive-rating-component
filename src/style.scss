@@ -25,29 +25,29 @@ html{
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-family: 'Overpass', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: $VeryDarkBlue;
     color: $White;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    
 }
-
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
-.root{
+#root{
     height: 100%;
 }
 .card-container{
+    margin: 20px;
     height: 100%;
+    gap: 20px;
 }
 .dis-flex-row{
     display: flex;
@@ -62,11 +62,12 @@ code {
     align-items: center;
 }
 .card{
-    flex: 0 0 400px;
+    max-width: 400px;
+    min-width: 320px;
     background: radial-gradient(ellipse at top,$card-color, $card-color-darker);
     border-radius: 20px;
-    align-items: flex-start;
     padding: 20px;
+    margin: 20px;
     .star-container{
         padding: 15px;
         border-radius: 50%;
@@ -78,7 +79,8 @@ code {
     
     .card-text{
         margin-top: 25px;
-        h1{
+        
+        h1, h2{
             font-weight: 700;
             font-size: 23px;
         }
@@ -122,6 +124,9 @@ code {
         }
     }
 }
+.align-start{
+    align-items: start;
+}
 .number-value{
     font-size: 1.1rem;
     padding: 15px 20px;
@@ -138,5 +143,37 @@ code {
     &:focus{
         background-color: $MediumGrey;
         color: $White;
+    }
+}
+.card-pad{
+    padding: 10px;
+    text-align: center;
+}
+.thanks-logo{
+    margin: 10px 0;
+    height: 100px;
+}
+.selected{
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: $DarkBlue;
+    color: $Orange;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+@media (min-height: 500px) {
+    body{
+        height: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .card{
+        .card-text{
+            p{
+                font-size: 15px;
+            }
+        }
     }
 }
